@@ -8,5 +8,8 @@
   "scripts": {
     "build": "npm --prefix frontend run build",
     "lint": "npm --prefix frontend run lint"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
