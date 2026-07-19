@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: financial-reconciliation-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm run prisma:generate && npm run build
+    startCommand: npm run prisma:deploy && npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: CORS_ORIGIN
+        sync: false
+      - key: BCRYPT_ROUNDS
+        value: 12

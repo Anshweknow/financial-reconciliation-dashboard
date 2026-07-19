@@ -12,5 +12,6 @@ router.post('/uploads/orders', requireAuth, upload.single('file'), uploadControl
 router.post('/uploads/payments', requireAuth, upload.single('file'), uploadController.uploadPayments);
 router.post('/reconciliation/run', requireAuth, reconciliation.run);
 router.get('/reconciliation/results', requireAuth, reconciliation.results);
+router.post('/reconciliation/results/:id/explain', requireAuth, reconciliation.explain);
 router.get('/dashboard/stats', requireAuth, reconciliation.stats);
 export default router;
