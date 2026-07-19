@@ -1,9 +1,12 @@
 {
   "name": "financial-reconciliation-dashboard",
   "private": true,
-  "workspaces": ["backend", "frontend"],
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "build": "npm run build --workspaces",
-    "lint": "npm run lint --workspaces"
+    "build": "npm --prefix frontend run build",
+    "lint": "npm --prefix frontend run lint"
   }
 }
