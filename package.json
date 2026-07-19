@@ -1,0 +1,7 @@
+{
+  "name": "financial-reconciliation-dashboard",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {"build":"npm run build --workspaces", "lint":"npm run lint --workspaces", "format":"prettier --write \"**/*.{ts,tsx,js,json,md,prisma}\""},
+  "devDependencies": {"prettier":"^3.3.3"}
+}
