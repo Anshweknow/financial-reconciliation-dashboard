@@ -1,0 +1,16 @@
+import { Router } from 'express';
+import * as auth from '../controllers/auth.controller';
+import * as uploadController from '../controllers/upload.controller';
+import * as reconciliation from '../controllers/reconciliation.controller';
+import { requireAuth } from '../middleware/auth';
+import { upload } from '../middleware/upload';
+const router = Router();
+router.get('/health', (_req, res) => res.json({ status: 'ok' }));
+router.post('/auth/register', auth.register);
+router.post('/auth/login', auth.login);
+router.post('/uploads/orders', requireAuth, upload.single('file'), uploadController.uploadOrders);
+router.post('/uploads/payments', requireAuth, upload.single('file'), uploadController.uploadPayments);
+router.post('/reconciliation/run', requireAuth, reconciliation.run);
+router.get('/reconciliation/results', requireAuth, reconciliation.results);
+router.get('/dashboard/stats', requireAuth, reconciliation.stats);
+export default router;
